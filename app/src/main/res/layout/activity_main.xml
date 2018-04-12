@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.ttvnp.ttj_point_business_user_android_client.presentation.main.MainActivity">
+    <data>
+        <variable name="email" type="String" />
+        <variable name="password" type="String" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/titleView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/mainTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/emailView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@{`Email: ` + email}"
+            app:layout_constraintStart_toStartOf="@+id/titleView"
+            app:layout_constraintTop_toBottomOf="@+id/titleView"
+            tools:text="Email: email@example.com" />
+
+        <TextView
+            android:id="@+id/passwordView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@{`Password: ` + password}"
+            app:layout_constraintStart_toStartOf="@+id/emailView"
+            app:layout_constraintTop_toBottomOf="@+id/emailView"
+            tools:text="Password: password" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

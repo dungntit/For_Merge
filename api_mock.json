@@ -1,0 +1,188 @@
+{
+  "registration": {
+    "email": "a",
+    "password": "a"
+  },
+  "activation": {
+    "email": "a",
+    "activation-code": ""
+  },
+  "user_auth": {
+    "email": "a",
+    "password": "a"
+  },
+  "profile": {
+    "id": "u1",
+    "email": "alice@example.com",
+    "first_name": "alice",
+    "middle_name": "super",
+    "last_name": "wornderland",
+    "icon_id": 1,
+    "icon": {
+      "original": "https://lorempixel.com/128/128/people/",
+      "small_thumbnail": "https://lorempixel.com/128/128/people/",
+      "medium_thumbnail": "https://lorempixel.com/128/128/people/",
+      "large_thumbnail": "https://lorempixel.com/128/128/people/"
+    },
+    "account": {
+      "point": 1000,
+      "coin": 100
+    }
+  },
+  "campaigns": [
+    {
+      "id": 1,
+      "name": "レストラン",
+      "email": "restaurant@example.com",
+      "address": "サイゴン市",
+      "receipt": true,
+      "use": true,
+      "campaign_name": "",
+      "campaign_description": "",
+      "campaign_image": null
+    },
+    {
+      "id": 2,
+      "name": "レストラン",
+      "email": "restaurant@example.com",
+      "address": "サイゴン市",
+      "receipt": true,
+      "use": true,
+      "campaign_name": "",
+      "campaign_description": "",
+      "campaign_image": null
+    },
+    {
+      "id": 3,
+      "name": "レストラン",
+      "email": "restaurant@example.com",
+      "address": "サイゴン市",
+      "receipt": true,
+      "use": true,
+      "campaign_name": "",
+      "campaign_description": "",
+      "campaign_image": null
+    },
+    {
+      "id": 4,
+      "name": "レストラン",
+      "email": "restaurant@example.com",
+      "address": "サイゴン市",
+      "receipt": true,
+      "use": true,
+      "campaign_name": "",
+      "campaign_description": "",
+      "campaign_image": null
+    }
+  ],
+  "ranking": [
+    {
+      "order": 1,
+      "customer": {
+        "id": "u1",
+        "email": "alice@example.com",
+        "first_name": "alice",
+        "middle_name": "middle",
+        "last_name": "wornderland",
+        "account": {
+          "point": 1000,
+          "coin": 100
+        },
+        "icon": {
+          "original": "https://lorempixel.com/128/128/people/",
+          "small_thumbnail": "https://lorempixel.com/128/128/people/",
+          "medium_thumbnail": "https://lorempixel.com/128/128/people/",
+          "large_thumbnail": "https://lorempixel.com/128/128/people/"
+        }
+      }
+    },
+    {
+      "order": 2,
+      "customer": {
+        "id": "u2",
+        "email": "alice@example.com",
+        "first_name": "bob",
+        "middle_name": "middle",
+        "last_name": "wornderland",
+        "account": {
+          "point": 600,
+          "coin": 100
+        },
+        "icon": {
+          "original": "https://lorempixel.com/128/128/people/",
+          "small_thumbnail": "https://lorempixel.com/128/128/people/",
+          "medium_thumbnail": "https://lorempixel.com/128/128/people/",
+          "large_thumbnail": "https://lorempixel.com/128/128/people/"
+        }
+      }
+    },
+    {
+      "order": 3,
+      "customer": {
+        "id": "u3",
+        "email": "alice@example.com",
+        "first_name": "curl",
+        "middle_name": "middle",
+        "last_name": "wornderland",
+        "account": {
+          "point": 500,
+          "coin": 100
+        },
+        "icon": {
+          "original": "https://lorempixel.com/128/128/people/",
+          "small_thumbnail": "https://lorempixel.com/128/128/people/",
+          "medium_thumbnail": "https://lorempixel.com/128/128/people/",
+          "large_thumbnail": "https://lorempixel.com/128/128/people/"
+        }
+      }
+    }
+  ],
+  "prize": [
+    {
+      "detail": "たまたま当たったで賞をゲット。おめでとうございます。",
+      "customer": {
+        "id": "u1",
+        "email": "alice@example.com",
+        "first_name": "alice",
+        "middle_name": "middle",
+        "last_name": "wornderland",
+        "account": {
+          "point": 500,
+          "coin": 100
+        },
+        "icon": {
+          "original": "https://lorempixel.com/128/128/people/",
+          "small_thumbnail": "https://lorempixel.com/128/128/people/",
+          "medium_thumbnail": "https://lorempixel.com/128/128/people/",
+          "large_thumbnail": "https://lorempixel.com/128/128/people/"
+        }
+      },
+      "image_url": "https://lorempixel.com/256/256/food/"
+    },
+    {
+      "detail": "A賞",
+      "customer": {
+        "id": "u1",
+        "email": "alice@example.com",
+        "first_name": "alice",
+        "middle_name": "middle",
+        "last_name": "wornderland",
+        "account": {
+          "point": 500,
+          "coin": 100
+        },
+        "icon": {
+          "original": "https://lorempixel.com/128/128/people/",
+          "small_thumbnail": "https://lorempixel.com/128/128/people/",
+          "medium_thumbnail": "https://lorempixel.com/128/128/people/",
+          "large_thumbnail": "https://lorempixel.com/128/128/people/"
+        }
+      },
+      "image_url": "https://lorempixel.com/256/256/food/"
+    }
+  ],
+  "transaction_use": {
+    "id": "transactionid_hogehoge"
+  },
+  "lottery": {}
+}

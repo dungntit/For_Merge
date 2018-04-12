@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "test-server": "json-server --routes routes_mock.json --watch api_mock.json --port 8000"
+  },
+  "devDependencies": {
+    "json-server": "^0.12.1"
+  }
+}

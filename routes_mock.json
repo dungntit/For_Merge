@@ -1,0 +1,12 @@
+{
+  "/api/v1/customer/registration": "/registration",
+  "/api/v1/customer/activation": "/activation",
+  "/api/v1/customer/auth": "/user_auth",
+  "/api/v1/customer/me": "/profile",
+  "/api/v1/shop": "/campaigns",
+  "/api/v1/shop/*": "/campaigns/$1",
+  "/api/v1/ranking": "/ranking",
+  "/api/v1/prize": "/prize",
+  "/api/v1/shop/transaction/use": "/transaction_use",
+  "/api/v1/*": "/$1"
+}

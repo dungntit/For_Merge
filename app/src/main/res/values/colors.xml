@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#5da2f3</color>
+    <color name="primaryDark">#303f9f</color>
+    <color name="turquoise_blue">#c83da1cb</color>
+    <color name="basic_button_background">#62B2D3</color>
+    <color name="basic_app_background">#f5f5f5</color>
+    <color name="basic_text_color">#969595</color>
+    <color name="accent">#ff4081</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="point_color">#3fb5e7</color>
+    <color name="text_color">#969595</color>
+    <color name="button_background">#4690e6</color>
+    <color name="profile_background">#f5f5f5</color>
+    <color name="circle_profile_background">#efefef</color>
+    <color name="ranking_background">#f5f5f5</color>
+    <color name="campaign_background">#f5f5f5</color>
+</resources>

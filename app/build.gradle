@@ -1,0 +1,83 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    flavorDimensions "default"
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.ttvnp.ttj_point_business_user_android_client"
+        minSdkVersion 21
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+            versionNameSuffix "-debug"
+            resValue "string", "app_name", "debug - SEN POINT"
+        }
+        release {
+            resValue "string", "app_name", "SEN POINT"
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+    compileOptions {
+    }
+    productFlavors {
+        staging {
+            buildConfigField "String", "BaseUrl", "\"${project.property("stagingBaseUrl")}\""
+        }
+        production {
+            buildConfigField "String", "BaseUrl", "\"${project.property("productionBaseUrl")}\""
+        }
+        local {
+            buildConfigField "String", "BaseUrl", "\"${project.property("localBaseUrl")}\""
+        }
+        jsonserver {
+            buildConfigField "String", "BaseUrl", "\"${project.property("localBaseUrl")}\""
+        }
+    }
+}
+
+dependencies {
+    def supportVersion = '27.1.0'
+    def daggerVersion = '2.15'
+    def retrofitVersion = '2.4.0'
+    def kotshiVersion = '1.0.2'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation "com.android.support:appcompat-v7:$supportVersion"
+    implementation "com.android.support:recyclerview-v7:$supportVersion"
+    implementation "com.android.support:cardview-v7:$supportVersion"
+    implementation "com.android.support:design:$supportVersion"
+    implementation "com.android.support:support-v4:$supportVersion"
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+    implementation "se.ansman.kotshi:api:$kotshiVersion"
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    implementation 'io.reactivex.rxjava2:rxkotlin:2.2.0'
+    implementation "com.google.dagger:dagger:$daggerVersion"
+    implementation "com.google.dagger:dagger-android:$daggerVersion"
+    implementation "com.google.dagger:dagger-android-support:$daggerVersion"
+    implementation 'com.google.zxing:core:3.3.1'
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
+    kapt 'com.android.databinding:compiler:3.1.0'
+    kapt "se.ansman.kotshi:compiler:$kotshiVersion"
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+}

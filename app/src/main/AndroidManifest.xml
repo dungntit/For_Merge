@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ttvnp.ttj_point_business_user_android_client">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".presentation.login.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".presentation.main.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".presentation.debug.DebugActivity" />
+        <activity android:name=".presentation.profile_edit.ProfileEditActivity" />
+        <activity android:name=".presentation.redeem_points.RedeemPointsActivity" />
+        <activity android:name=".presentation.qrcode.QRCodeActivity" />
+        <activity android:name=".presentation.tabs.TabsActivity" />
+        <activity
+            android:name=".presentation.sign_up.SignUpActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".presentation.campaign.CampaignDetailActivity" />
+        <activity android:name=".presentation.activate.ActivateActivity" />
+        <activity android:name=".presentation.complete.CompleteActivity" />
+    </application>
+
+</manifest>
