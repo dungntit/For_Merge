@@ -1,0 +1,142 @@
+version: 2
+jobs:
+  beta:
+    working_directory: ~/code
+    docker:
+      - image: circleci/android:api-26-alpha
+    environment:
+      JVM_OPTS: -Xmx3200m
+    steps:
+      - checkout
+      - run: bundle install
+      - run:
+          name: Setup Gcloud Client
+          command: |
+            echo $GCLOUD_SERVICE_KEY|base64 --decode --ignore-garbage > ${HOME}/gcloud-service-key.json
+            sudo apt-get update && sudo apt-get --only-upgrade install kubectl google-cloud-sdk google-cloud-sdk-datastore-emulator google-cloud-sdk-pubsub-emulator google-cloud-sdk-app-engine-go google-cloud-sdk-app-engine-java google-cloud-sdk-app-engine-python google-cloud-sdk-cbt google-cloud-sdk-bigtable-emulator google-cloud-sdk-datalab
+            gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
+            gcloud config set project $GCLOUD_PROJECT
+      - run:
+          name: Download keystore
+          command: gsutil cp gs://senpoint-demo-app-credentials/android-client/release.keystore ./keystore/release.keystore
+      - restore_cache:
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+      - run:
+          name: Download Dependencies
+          command: ./gradlew androidDependencies
+      - save_cache:
+          paths:
+            - ~/.gradle
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+      - run:
+          name: Run Tests
+          command: ./gradlew lint test
+      - store_artifacts:
+          path: app/build/reports
+          destination: reports
+      - store_test_results:
+          path: app/build/test-results
+      - run:
+          name: Deploy to Fabric Beta
+          command: fastlane beta
+  preprod:
+    working_directory: ~/code
+    docker:
+      - image: circleci/android:api-26-alpha
+    environment:
+      JVM_OPTS: -Xmx3200m
+    steps:
+      - checkout
+      - run: bundle install
+      - run:
+          name: Setup Gcloud Client
+          command: |
+            echo $GCLOUD_SERVICE_KEY|base64 --decode --ignore-garbage > ${HOME}/gcloud-service-key.json
+            sudo apt-get update && sudo apt-get --only-upgrade install kubectl google-cloud-sdk google-cloud-sdk-datastore-emulator google-cloud-sdk-pubsub-emulator google-cloud-sdk-app-engine-go google-cloud-sdk-app-engine-java google-cloud-sdk-app-engine-python google-cloud-sdk-cbt google-cloud-sdk-bigtable-emulator google-cloud-sdk-datalab
+            gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
+            gcloud config set project $GCLOUD_PROJECT
+      - run:
+          name: Download keystore
+          command: gsutil cp gs://senpoint-demo-app-credentials/android-client/release.keystore ./keystore/release.keystore
+      - restore_cache:
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+      - run:
+          name: Download Dependencies
+          command: ./gradlew androidDependencies
+      - save_cache:
+          paths:
+            - ~/.gradle
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+      - run:
+          name: Run Tests
+          command: ./gradlew lint test
+      - store_artifacts:
+          path: app/build/reports
+          destination: reports
+      - store_test_results:
+          path: app/build/test-results
+      - run:
+          name: Deploy to Fabric Beta
+          command: fastlane preprod
+  deploy:
+    working_directory: ~/code
+    docker:
+      - image: circleci/android:api-26-alpha
+    environment:
+      JVM_OPTS: -Xmx3200m
+    steps:
+      - checkout
+      - run: bundle install
+      - run:
+          name: Setup Gcloud Client
+          command: |
+            echo $GCLOUD_SERVICE_KEY|base64 --decode --ignore-garbage > ${HOME}/gcloud-service-key.json
+            sudo apt-get update && sudo apt-get --only-upgrade install kubectl google-cloud-sdk google-cloud-sdk-datastore-emulator google-cloud-sdk-pubsub-emulator google-cloud-sdk-app-engine-go google-cloud-sdk-app-engine-java google-cloud-sdk-app-engine-python google-cloud-sdk-cbt google-cloud-sdk-bigtable-emulator google-cloud-sdk-datalab
+            gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
+            gcloud config set project $GCLOUD_PROJECT
+      - run:
+          name: Setup Gcloud Play Console Auth Settings
+          command: |
+            echo $GOOGLE_PLAY_DEVELOPER_SERVICE_KEY|base64 --decode --ignore-garbage > ${HOME}/google-play-developer.json
+            echo "json_key_file \"${HOME}/google-play-developer.json\"" > ./fastlane/Appfile
+            echo 'package_name "com.ttvnp.ttj_point_business_user_android_client"' >> ./fastlane/Appfile
+      - run:
+          name: Download keystore
+          command: gsutil cp gs://senpoint-demo-app-credentials/android-client/release.keystore ./keystore/release.keystore
+      - restore_cache:
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+      - run:
+          name: Download Dependencies
+          command: ./gradlew androidDependencies
+      - save_cache:
+          paths:
+            - ~/.gradle
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+      - run:
+          name: Run Tests
+          command: ./gradlew lint test
+      - store_artifacts:
+          path: app/build/reports
+          destination: reports
+      - store_test_results:
+          path: app/build/test-results
+      - run:
+          name: Deploy to Google Play
+          command: fastlane deploy
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - beta:
+          filters:
+            branches:
+              only: master
+      - preprod:
+          filters:
+            branches:
+              only: preproduction
+      - deploy:
+          filters:
+            branches:
+              only: master
