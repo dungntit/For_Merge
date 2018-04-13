@@ -35,6 +35,9 @@
         <activity android:name=".presentation.campaign.CampaignDetailActivity" />
         <activity android:name=".presentation.activate.ActivateActivity" />
         <activity android:name=".presentation.complete.CompleteActivity" />
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="${fabric_api_key}" />
     </application>
 
 </manifest>

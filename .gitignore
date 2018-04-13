@@ -1,0 +1,15 @@
+*.iml
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/app/prod/release
+/build
+/captures
+.externalNativeBuild
+/.envrc
+/.java-version
+fabric.properties
+/fastlane/report.xml
+keystore/release.keystore

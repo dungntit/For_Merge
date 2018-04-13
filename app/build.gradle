@@ -6,6 +6,11 @@ apply plugin: 'kotlin-kapt'
 android {
     flavorDimensions "default"
     compileSdkVersion 27
+    Properties properties = new Properties()
+    def localPropertyFile = project.rootProject.file('local.properties')
+    if (localPropertyFile.exists()) {
+        properties.load(localPropertyFile.newDataInputStream())
+    }
     defaultConfig {
         applicationId "com.ttvnp.ttj_point_business_user_android_client"
         minSdkVersion 21
@@ -13,6 +18,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        manifestPlaceholders = [fabric_api_key: properties.getProperty("FABRIC_API_KEY", System.getenv("FABRIC_API_KEY"))]
     }
     buildTypes {
         debug {
@@ -60,6 +66,11 @@ android {
             buildConfigField "String", "BaseUrl", "\"${project.property("localBaseUrl")}\""
         }
     }
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+        mavenCentral()
+    }
+
 }
 
 dependencies {
@@ -95,4 +106,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation('com.crashlytics.sdk.android:crashlytics:2.9.0@aar') {
+        transitive = true;
+    }
 }
