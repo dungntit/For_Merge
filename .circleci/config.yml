@@ -135,7 +135,7 @@ workflows:
       - preprod:
           filters:
             branches:
-              only: preproduction
+              only: master
       - deploy:
           filters:
             branches:
