@@ -36,9 +36,7 @@ jobs:
           destination: reports
       - store_test_results:
           path: app/build/test-results
-      - run:
-          name: Deploy to Fabric Beta
-          command: fastlane beta
+    
   preprod:
     working_directory: ~/code
     docker:
