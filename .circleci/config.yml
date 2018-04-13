@@ -12,9 +12,9 @@ jobs:
       - run:
           name: Setup Gcloud Client
           command: |
-            echo $GCLOUD_SERVICE_KEY|base64 --decode --ignore-garbage > ${HOME}/gcloud-service-key.json
+            echo $GCLOUD_SERVICE_KEY|base64 --decode --ignore-garbage > ${HOME}/SEN POINT - Alpha-6bc4c09007fc.json
             sudo apt-get update && sudo apt-get --only-upgrade install kubectl google-cloud-sdk google-cloud-sdk-datastore-emulator google-cloud-sdk-pubsub-emulator google-cloud-sdk-app-engine-go google-cloud-sdk-app-engine-java google-cloud-sdk-app-engine-python google-cloud-sdk-cbt google-cloud-sdk-bigtable-emulator google-cloud-sdk-datalab
-            gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
+            gcloud auth activate-service-account --key-file ${HOME}/SEN POINT - Alpha-6bc4c09007fc.json
             gcloud config set project $GCLOUD_PROJECT
       - run:
           name: Download keystore
@@ -51,9 +51,9 @@ jobs:
       - run:
           name: Setup Gcloud Client
           command: |
-            echo $GCLOUD_SERVICE_KEY|base64 --decode --ignore-garbage > ${HOME}/gcloud-service-key.json
+            echo $GCLOUD_SERVICE_KEY|base64 --decode --ignore-garbage > ${HOME}/SEN POINT - Alpha-6bc4c09007fc.json
             sudo apt-get update && sudo apt-get --only-upgrade install kubectl google-cloud-sdk google-cloud-sdk-datastore-emulator google-cloud-sdk-pubsub-emulator google-cloud-sdk-app-engine-go google-cloud-sdk-app-engine-java google-cloud-sdk-app-engine-python google-cloud-sdk-cbt google-cloud-sdk-bigtable-emulator google-cloud-sdk-datalab
-            gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
+            gcloud auth activate-service-account --key-file ${HOME}/SEN POINT - Alpha-6bc4c09007fc.json
             gcloud config set project $GCLOUD_PROJECT
       - run:
           name: Download keystore
@@ -90,9 +90,9 @@ jobs:
       - run:
           name: Setup Gcloud Client
           command: |
-            echo $GCLOUD_SERVICE_KEY|base64 --decode --ignore-garbage > ${HOME}/gcloud-service-key.json
+            echo $GCLOUD_SERVICE_KEY|base64 --decode --ignore-garbage > ${HOME}/SEN POINT - Alpha-6bc4c09007fc.json
             sudo apt-get update && sudo apt-get --only-upgrade install kubectl google-cloud-sdk google-cloud-sdk-datastore-emulator google-cloud-sdk-pubsub-emulator google-cloud-sdk-app-engine-go google-cloud-sdk-app-engine-java google-cloud-sdk-app-engine-python google-cloud-sdk-cbt google-cloud-sdk-bigtable-emulator google-cloud-sdk-datalab
-            gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
+            gcloud auth activate-service-account --key-file ${HOME}/SEN POINT - Alpha-6bc4c09007fc.json
             gcloud config set project $GCLOUD_PROJECT
       - run:
           name: Setup Gcloud Play Console Auth Settings
