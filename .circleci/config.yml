@@ -18,7 +18,7 @@ jobs:
             gcloud config set project $GCLOUD_PROJECT
       - run:
           name: Download keystore signing
-          command: bash keystore/sen_point_alpha.keystore
+          command: bash keystore/sen_point_alpha1.keystore
       - restore_cache:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
       - run:
@@ -57,7 +57,7 @@ jobs:
             gcloud config set project $GCLOUD_PROJECT
       - run:
           name: Download keystore signing
-          command: bash keystore/sen_point_alpha.keystore
+          command: bash keystore/sen_point_alpha1.keystore
       - restore_cache:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
       - run:
@@ -102,7 +102,7 @@ jobs:
             echo 'package_name "com.ttvnp.ttj_point_business_user_android_client"' >> ./fastlane/Appfile
       - run:
           name: Download keystore signing
-          command: bash keystore/sen_point_alpha.keystore
+          command: bash keystore/sen_point_alpha1.keystore
       - restore_cache:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
       - run:
