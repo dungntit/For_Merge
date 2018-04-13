@@ -24,6 +24,21 @@ android {
             resValue "string", "app_name", "SEN POINT"
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+        }
+    }
+    signingConfigs {
+        debug {
+            storeFile file('../keystore/debug.keystore')
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+        }
+        release {
+            keyAlias 'sen_point_alpha'
+            keyPassword 'sen_point_alpha'
+            storeFile file('../keystore/sen_point_alpha.keystore')
+            storePassword 'sen_point_alpha'
         }
     }
     dataBinding {
